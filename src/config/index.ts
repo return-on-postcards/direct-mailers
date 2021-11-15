@@ -1,6 +1,8 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
+export const isAxiosError = axios.isAxiosError;
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -20,13 +22,13 @@ export const client = axios.create({
 axiosRetry(client, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
 export enum Path {
-  account = '/account',
-  autofund = '/autofund',
-  fund = '/fund',
-  letter = '/letter',
-  paymentmethod = '/paymentmethod',
-  postcard = '/postcard',
-  skus = '/skus',
-  template = '/template',
-  verifyaddress = '/verifyaddress',
+  account = '/account/',
+  autofund = '/autofund/',
+  fund = '/fund/',
+  letter = '/letter/',
+  paymentmethod = '/paymentmethod/',
+  postcard = '/postcard/',
+  skus = '/skus/',
+  template = '/template/',
+  verifyaddress = '/verifyaddress/',
 }
