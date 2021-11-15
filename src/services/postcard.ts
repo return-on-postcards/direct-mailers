@@ -4,7 +4,7 @@ import { DirectMailersError } from '../errors';
 
 export const createPostcard = async <VPayload extends object>(
   params: PostcardCreateParams<VPayload>
-) => {
+): Promise<PostcardObject<VPayload>> => {
   try {
     const { data } = await client.post<PostcardObject<VPayload>>(
       Path.postcard,
@@ -19,7 +19,7 @@ export const createPostcard = async <VPayload extends object>(
 
 export type PostcardSizes = '4.25x6' | '6x9' | '5.5x11';
 
-export type PostcardCreateParams<VPayload> = {
+export type PostcardCreateParams<VPayload = {}> = {
   Description: string;
   Size: PostcardSizes;
   Front: string;
@@ -31,7 +31,7 @@ export type PostcardCreateParams<VPayload> = {
   WaitForRender?: boolean;
 };
 
-export type PostcardObject<VPayload> = {
+export type PostcardObject<VPayload = {}> = {
   PrintRecord: string;
   Created: string;
   MailingDate: string;
@@ -57,7 +57,7 @@ export type PostcardObject<VPayload> = {
   ActualDeliveryDate: string | null;
 };
 
-export type PostcardWebhookBody<VPayload> = {
+export type PostcardWebhookBody<VPayload = {}> = {
   Data: PostcardObject<VPayload>[];
   Event: 'NewPrintObject';
   Object: 'Postcard';
