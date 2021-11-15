@@ -1,6 +1,6 @@
 {
   "name": "direct-mailers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Direct mailers.",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
