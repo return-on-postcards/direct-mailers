@@ -1,6 +1,6 @@
 ## Direct Mailers
 
-#### Authentication
+### Authentication
 
 To authenticate simply set your basic auth to this environment variable like so:
 
